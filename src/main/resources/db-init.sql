@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS user (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS task (
+    id SERIAL PRIMARY KEY,
+    description VARCHAR(255) NOT NULL,
+    user_id INTEGER REFERENCES user(id)
+);
