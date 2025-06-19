@@ -11,7 +11,7 @@ Aplicacion web de ejemplo con Spring Boot, JSF, Hibernate y PostgreSQL.
 Crea una base de datos llamada `smartwebapp` y ajusta las credenciales en `src/main/resources/application.properties`.
 
 Para poblar datos iniciales se usa `import.sql`.
-Las plantillas JSF se encuentran en `src/main/webapp`.
+Las plantillas JSF se encuentran en `src/main/resources/templates`.
 
 ## Configuracion automatica
 Para simplificar la puesta en marcha en Windows se incluye el script

@@ -47,8 +47,8 @@ src/main
 │       ├── model        # Entidades
 │       └── exception    # Clases de error
 ├── resources
-│   └── application.properties
-└── webapp           # Vistas JSF
+│   ├── application.properties
+│   └── templates    # Vistas JSF
 ```
 
 ## Paquetes y clases principales
