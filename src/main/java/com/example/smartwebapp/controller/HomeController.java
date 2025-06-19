@@ -16,6 +16,7 @@ public class HomeController {
      */
     @GetMapping({"/", ""})
     public String home() {
-        return "index.xhtml";
+        // Redirige a la vista JSF principal sin pasar por el resolutor de vistas
+        return "forward:/index.xhtml";
     }
 }
