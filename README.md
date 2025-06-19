@@ -12,6 +12,16 @@ Crea una base de datos llamada `smartwebapp` y ajusta las credenciales en `src/m
 
 Para poblar datos iniciales se usa `import.sql`.
 
+## Configuracion automatica
+Para simplificar la puesta en marcha en Windows se incluye el script
+`setup.ps1`. Ejecutalo desde PowerShell para que se encargue de crear la
+base de datos, resolver posibles conflictos de puertos y arrancar la
+aplicacion.
+
+```powershell
+./setup.ps1
+```
+
 ## Compilacion
 ```bash
 mvn clean package
