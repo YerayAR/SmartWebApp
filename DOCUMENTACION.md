@@ -38,15 +38,17 @@ Cada capa tiene una responsabilidad concreta:
 
 ## Estructura de carpetas
 ```text
-src/main/java
-├── com.example.smartwebapp
-│   ├── controller   # Controladores MVC
-│   ├── service      # Servicios de dominio
-│   ├── repository   # Interfaces JPA
-│   ├── model        # Entidades
-│   └── exception    # Clases de error
-└── resources
-    └── templates    # Vistas JSF
+src/main
+├── java
+│   └── com.example.smartwebapp
+│       ├── controller   # Controladores MVC
+│       ├── service      # Servicios de dominio
+│       ├── repository   # Interfaces JPA
+│       ├── model        # Entidades
+│       └── exception    # Clases de error
+├── resources
+│   └── application.properties
+└── webapp           # Vistas JSF
 ```
 
 ## Paquetes y clases principales
