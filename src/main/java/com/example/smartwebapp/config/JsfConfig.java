@@ -1,7 +1,7 @@
 package com.example.smartwebapp.config;
 
 import jakarta.faces.webapp.FacesServlet;
-import org.apache.myfaces.webapp.ConfigureListener;
+import org.apache.myfaces.webapp.StartupServletContextListener;
 import org.jboss.weld.environment.servlet.Listener;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
@@ -21,8 +21,8 @@ public class JsfConfig {
     }
 
     @Bean
-    public ServletListenerRegistrationBean<ConfigureListener> jsfConfigureListener() {
-        return new ServletListenerRegistrationBean<>(new ConfigureListener());
+    public ServletListenerRegistrationBean<StartupServletContextListener> jsfConfigureListener() {
+        return new ServletListenerRegistrationBean<>(new StartupServletContextListener());
     }
 
     @Bean
