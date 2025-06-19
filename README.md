@@ -7,18 +7,18 @@ Aplicacion web de ejemplo con Spring Boot, JSF, Hibernate y PostgreSQL.
 - Maven
 - PostgreSQL
 
-## Configuraci\u00f3n
+## Configuracion
 Crea una base de datos llamada `smartwebapp` y ajusta las credenciales en `src/main/resources/application.properties`.
 
 Para poblar datos iniciales se usa `import.sql`.
 
-## Compilaci\u00f3n
+## Compilacion
 ```bash
 mvn clean package
 ```
 
-## Ejecuci\u00f3n
+## Ejecucion
 ```bash
 mvn spring-boot:run
 ```
-La aplicaci\u00f3n quedar\u00e1 disponible en `http://localhost:8080`.
+La aplicacion quedara disponible en `http://localhost:8080`.
