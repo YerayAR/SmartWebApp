@@ -1,6 +1,6 @@
 # SmartWebApp
 
-Aplicaci\u00f3n web de ejemplo con Spring Boot, JSF, Hibernate y PostgreSQL.
+Aplicacion web de ejemplo con Spring Boot, JSF, Hibernate y PostgreSQL.
 
 ## Requisitos
 - Java 17
