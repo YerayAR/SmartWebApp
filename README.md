@@ -1,9 +1,9 @@
 # SmartWebApp
 
-Aplicaci\u00f3n web de ejemplo con Spring Boot, JSF, Hibernate y PostgreSQL.
+Aplicación web de ejemplo con **Spring Boot 3.2.3**, JSF, Hibernate y PostgreSQL.
 
 ## Requisitos
-- Java 17
+- Java 21
 - Maven
 - PostgreSQL
 
@@ -14,7 +14,7 @@ Para poblar datos iniciales se usa `import.sql`.
 
 ## Compilaci\u00f3n
 ```bash
-mvn clean package
+mvn clean package -DskipTests
 ```
 
 ## Ejecuci\u00f3n

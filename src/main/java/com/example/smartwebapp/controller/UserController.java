@@ -40,10 +40,7 @@ public class UserController {
      */
     @GetMapping
     public String list(Model model) {
-        List<User> users = userService.findAll();
-        model.addAttribute("users", users);
-        model.addAttribute("user", new User());
-        return "users.xhtml";
+        return prepareListView(model);
     }
 
     /**
@@ -59,13 +56,26 @@ public class UserController {
         // En caso de errores de validación se vuelve a mostrar la vista con
         // la lista de usuarios recargada.
         if (result.hasErrors()) {
-            model.addAttribute("users", userService.findAll());
-            // TODO: lógica repetida de recarga. Considerar factorizar en un
-            // método privado común para mejorar el mantenimiento.
-            return "users.xhtml";
+            // Si hay errores de validación se muestra nuevamente la vista
+            // recargando la lista de usuarios.
+            return prepareListView(model);
         }
         // Guardamos el nuevo usuario y redirigimos a la lista principal
         userService.save(user);
         return "redirect:/users";
+    }
+
+    /**
+     * Prepara el modelo con la lista de usuarios y un formulario vacío.
+     * Este método evita duplicar la recarga de datos tanto en GET como en POST.
+     *
+     * @param model modelo de vista
+     * @return nombre de la plantilla
+     */
+    private String prepareListView(Model model) {
+        List<User> users = userService.findAll();
+        model.addAttribute("users", users);
+        model.addAttribute("user", new User());
+        return "users.xhtml";
     }
 }

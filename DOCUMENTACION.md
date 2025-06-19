@@ -1,14 +1,14 @@
 # Documentación de SmartWebApp
 
 ## Resumen ejecutivo
-SmartWebApp es un ejemplo de aplicación web basada en **Spring Boot** que
+SmartWebApp es un ejemplo de aplicación web basada en **Spring Boot 3.2.3** que
 utiliza **JavaServer Faces (JSF)** como motor de vistas. El acceso a datos se
 realiza mediante **Hibernate/JPA** sobre **PostgreSQL**. Su objetivo principal
 es ilustrar una arquitectura en capas sencilla (Controlador, Servicio y
 Repositorio) para la gestión de usuarios y tareas.
 
 ## Introducción
-SmartWebApp es una aplicación web desarrollada con **Spring Boot** y
+SmartWebApp es una aplicación web desarrollada con **Spring Boot 3.2.3** y
 **JavaServer Faces (JSF)** que utiliza **Hibernate/JPA** para el acceso
 persistente sobre **PostgreSQL**. El propósito del proyecto es mostrar un
 pequeño gestor de usuarios y tareas, sirviendo como base para ejemplos de
@@ -80,7 +80,7 @@ curl -X POST -d "name=John" http://localhost:8080/users
 ```
 
 ## Requisitos técnicos
-- **Java 17**
+- **Java 21**
 - **Maven**
 - **PostgreSQL** configurado y accesible según
   `src/main/resources/application.properties`.
@@ -96,14 +96,14 @@ crear o actualizar las tablas automáticamente.
    el script `import.sql` para datos de ejemplo.
 3. Compilar y ejecutar:
    ```bash
-   mvn clean install
+   mvn clean package -DskipTests
    mvn spring-boot:run
    ```
 4. Abrir `http://localhost:8080` en el navegador.
 
 ## Despliegue en producción
-1. Empaquetar con `mvn clean package`.
-2. Copiar el JAR generado al servidor destino con Java 17 instalado.
+1. Empaquetar con `mvn clean package -DskipTests`.
+2. Copiar el JAR generado al servidor destino con Java 21 instalado.
 3. Configurar las variables de entorno de conexión a la base de datos o
    modificar `application.properties`.
 4. Ejecutar:
@@ -121,6 +121,6 @@ mvn test
 - Añadir controladores REST y pruebas automáticas adicionales.
 - Revisar las pruebas actuales: `UserServiceTests` usa `@DataJpaTest` pero
   podría migrarse a `@SpringBootTest` para disponer del contexto completo.
-- Extraer la lógica de recarga de listas en los controladores a métodos
-  privados o servicios auxiliares para reducir duplicidad de código.
+- La lógica de recarga de listas se extrajo a métodos privados en los
+  controladores para simplificar el mantenimiento.
 

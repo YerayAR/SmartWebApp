@@ -44,10 +44,7 @@ public class TaskController {
      */
     @GetMapping
     public String list(Model model) {
-        model.addAttribute("tasks", taskService.findAll());
-        model.addAttribute("task", new Task());
-        model.addAttribute("users", userService.findAll());
-        return "tasks.xhtml";
+        return prepareListView(model);
     }
 
     /**
@@ -63,14 +60,25 @@ public class TaskController {
         // Si la validación detecta errores se regresa a la misma vista
         // poblando nuevamente los datos necesarios para su renderizado.
         if (result.hasErrors()) {
-            model.addAttribute("tasks", taskService.findAll());
-            model.addAttribute("users", userService.findAll());
-            // TODO: esta recarga de listas se repite en varios controladores.
-            // Puede extraerse a un método privado o servicio auxiliar.
-            return "tasks.xhtml";
+            // Si la validación falla se vuelve a la vista con los datos necesarios
+            return prepareListView(model);
         }
         // Persistimos la tarea y redirigimos para evitar reenvío del formulario
         taskService.save(task);
         return "redirect:/tasks";
+    }
+
+    /**
+     * Carga en el modelo los datos necesarios para la vista de tareas.
+     * Permite reutilizar la misma lógica desde varios métodos.
+     *
+     * @param model modelo de vista
+     * @return nombre de la plantilla
+     */
+    private String prepareListView(Model model) {
+        model.addAttribute("tasks", taskService.findAll());
+        model.addAttribute("task", new Task());
+        model.addAttribute("users", userService.findAll());
+        return "tasks.xhtml";
     }
 }
