@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Controlador web para la gestión de usuarios.
  * <p>
- * Atiende la ruta <code>/users</code> y muestra vistas JSF para listar
+ * Atiende la ruta <code>/users</code> y utiliza vistas Thymeleaf para listar
  * y registrar nuevos usuarios en la base de datos.
  */
 @Controller
