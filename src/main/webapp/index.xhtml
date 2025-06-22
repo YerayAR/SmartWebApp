@@ -2,7 +2,33 @@
 <!-- Página de inicio con enlaces a las secciones principales -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="https://jakarta.ee/xml/ns/jakartaee">
-<h:head><title>SmartWebApp - Home</title></h:head>
+<h:head>
+    <title>SmartWebApp - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 10px;
+        }
+        nav li {
+            flex: 1;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            nav li {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</h:head>
 <h:body>
     <h1>SmartWebApp</h1>
     <p>Bienvenido a la aplicación de gestión de usuarios y tareas.</p>

@@ -32,3 +32,6 @@ mvn clean package
 mvn spring-boot:run
 ```
 La aplicacion quedara disponible en `http://localhost:8080`.
+
+## Integracion JSF
+La aplicacion usa JavaServer Faces con MyFaces y CDI. El bean `JsfInitializer` registra programaticamente el `FacesServlet` y los listeners necesarios para que los enlaces y formularios funcionen correctamente. Si la navegacion parece estatica, asegúrate de ejecutar la aplicacion a traves de Spring Boot para que este inicializador se ejecute.
