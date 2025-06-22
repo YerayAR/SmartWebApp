@@ -54,4 +54,13 @@ public class UserService {
     public java.util.Optional<User> findById(Long id) {
         return userRepository.findById(id);
     }
+
+    /**
+     * Elimina un usuario por su identificador.
+     *
+     * @param id identificador del usuario a eliminar
+     */
+    public void deleteById(Long id) {
+        userRepository.deleteById(id);
+    }
 }

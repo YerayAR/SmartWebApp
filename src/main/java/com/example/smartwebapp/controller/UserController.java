@@ -36,14 +36,14 @@ public class UserController {
      * Muestra la lista de usuarios registrados.
      *
      * @param model modelo de vista
-     * @return nombre de la plantilla JSF
+     * @return nombre de la plantilla Thymeleaf
      */
     @GetMapping
     public String list(Model model) {
         List<User> users = userService.findAll();
         model.addAttribute("users", users);
         model.addAttribute("user", new User());
-        return "users.xhtml";
+        return "users/index";
     }
 
     /**
@@ -62,7 +62,7 @@ public class UserController {
             model.addAttribute("users", userService.findAll());
             // TODO: lógica repetida de recarga. Considerar factorizar en un
             // método privado común para mejorar el mantenimiento.
-            return "users.xhtml";
+            return "users/index";
         }
         // Guardamos el nuevo usuario y redirigimos a la lista principal
         userService.save(user);

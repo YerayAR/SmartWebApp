@@ -2,6 +2,9 @@ package com.example.smartwebapp.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDateTime;
 
 /**
  * Entidad que representa una tarea asignada a un usuario.
@@ -27,6 +30,17 @@ public class Task {
     @JoinColumn(name = "user_id")
     private User user;
 
+    /** Prioridad de la tarea. */
+    @Enumerated(EnumType.STRING)
+    private Priority priority = Priority.MEDIUM;
+
+    /** Estado de completado de la tarea. */
+    private boolean completed = false;
+
+    /** Fecha de creación de la tarea. */
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
     // getters y setters
     /** @return id de la tarea */
     public Long getId() { return id; }
@@ -42,4 +56,19 @@ public class Task {
     public User getUser() { return user; }
     /** @param user usuario asignado */
     public void setUser(User user) { this.user = user; }
+
+    /** @return prioridad de la tarea */
+    public Priority getPriority() { return priority; }
+    /** @param priority nueva prioridad */
+    public void setPriority(Priority priority) { this.priority = priority; }
+
+    /** @return si la tarea está completada */
+    public boolean isCompleted() { return completed; }
+    /** @param completed nuevo estado de completado */
+    public void setCompleted(boolean completed) { this.completed = completed; }
+
+    /** @return fecha de creación */
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    /** @param createdAt nueva fecha de creación */
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 }

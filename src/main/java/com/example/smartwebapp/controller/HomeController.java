@@ -16,7 +16,7 @@ public class HomeController {
      */
     @GetMapping({"/", ""})
     public String home() {
-        // Redirige a la vista JSF principal
-        return "redirect:/index.xhtml";
+        // Retorna la vista Thymeleaf de inicio
+        return "index";
     }
 }

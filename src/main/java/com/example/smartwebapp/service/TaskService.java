@@ -5,6 +5,7 @@ import com.example.smartwebapp.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Servicio de dominio para operaciones con tareas.
@@ -56,5 +57,24 @@ public class TaskService {
         // Si no se encuentra la tarea se lanza una excepción informativa
         return taskRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Task not found"));
+    }
+
+    /**
+     * Busca una tarea por su identificador.
+     *
+     * @param id identificador
+     * @return Optional con la tarea si existe
+     */
+    public Optional<Task> findByIdOptional(Long id) {
+        return taskRepository.findById(id);
+    }
+
+    /**
+     * Elimina una tarea por su identificador.
+     *
+     * @param id identificador de la tarea a eliminar
+     */
+    public void deleteById(Long id) {
+        taskRepository.deleteById(id);
     }
 }
