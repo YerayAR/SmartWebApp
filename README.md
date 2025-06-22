@@ -1,6 +1,6 @@
 # SmartWebApp
 
-Aplicacion web de ejemplo con Spring Boot, JSF, Hibernate y PostgreSQL.
+Aplicacion web de ejemplo con Spring Boot, Thymeleaf, Hibernate y PostgreSQL.
 
 ## Requisitos
 - Java 17
@@ -31,7 +31,11 @@ mvn clean package
 ```bash
 mvn spring-boot:run
 ```
-La aplicacion quedara disponible en `http://localhost:8080`.
+La aplicacion quedara disponible en `http://localhost:8082`.
 
-## Integracion JSF
-La aplicacion usa JavaServer Faces con MyFaces y CDI. El bean `JsfInitializer` registra programaticamente el `FacesServlet` y los listeners necesarios para que los enlaces y formularios funcionen correctamente. Si la navegacion parece estatica, asegúrate de ejecutar la aplicacion a traves de Spring Boot para que este inicializador se ejecute.
+## Vistas con Thymeleaf
+La interfaz web se construye con [Thymeleaf](https://www.thymeleaf.org/),
+lo que permite usar plantillas HTML estáticas enriquecidas con expresiones de
+Spring para mostrar datos dinámicos de forma sencilla. No se requiere ninguna
+configuración adicional, ya que Spring Boot detecta automáticamente las
+plantillas ubicadas en `src/main/resources/templates`.

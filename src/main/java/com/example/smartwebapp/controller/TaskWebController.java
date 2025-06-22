@@ -28,7 +28,10 @@ public class TaskWebController {
     @Autowired
     private UserService userService;
 
-    // Página principal de tareas
+    /**
+     * Muestra la página principal de tareas con el formulario de alta y la
+     * lista existente.
+     */
     @GetMapping
     public String index(Model model) {
         model.addAttribute("tasks", taskService.findAll());
@@ -37,9 +40,16 @@ public class TaskWebController {
         return "tasks/index";
     }
 
-    // Crear tarea
+    /**
+     * Procesa el formulario de creación de una tarea.
+     *
+     * @param task   entidad enviada desde el formulario
+     * @param userId identificador del usuario asociado
+     * @param result resultado de la validación
+     * @param model  modelo de la vista
+     */
     @PostMapping
-    public String create(@Valid @ModelAttribute Task task, 
+    public String create(@Valid @ModelAttribute Task task,
                         @RequestParam("userId") Long userId,
                         BindingResult result, Model model) {
         if (result.hasErrors()) {
@@ -57,13 +67,19 @@ public class TaskWebController {
         return "redirect:/tasks";
     }
 
-    // API REST endpoints
+    // --- API REST endpoints ---
+    /**
+     * Devuelve todas las tareas en formato JSON.
+     */
     @GetMapping("/api")
     @ResponseBody
     public List<Task> getAllTasks() {
         return taskService.findAll();
     }
 
+    /**
+     * Obtiene una tarea por su identificador.
+     */
     @GetMapping("/api/{id}")
     @ResponseBody
     public ResponseEntity<Task> getTaskById(@PathVariable Long id) {
@@ -72,12 +88,18 @@ public class TaskWebController {
                   .orElse(ResponseEntity.notFound().build());
     }
 
+    /**
+     * Crea una tarea a través de la API REST.
+     */
     @PostMapping("/api")
     @ResponseBody
     public Task createTask(@Valid @RequestBody Task task) {
         return taskService.save(task);
     }
 
+    /**
+     * Elimina una tarea por su identificador.
+     */
     @DeleteMapping("/api/{id}")
     @ResponseBody
     public ResponseEntity<Void> deleteTask(@PathVariable Long id) {
@@ -88,6 +110,9 @@ public class TaskWebController {
         return ResponseEntity.notFound().build();
     }
 
+    /**
+     * Cambia el estado de completado de una tarea.
+     */
     @PostMapping("/api/{id}/toggle")
     @ResponseBody
     public ResponseEntity<Task> toggleTask(@PathVariable Long id) {

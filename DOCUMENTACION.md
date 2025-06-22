@@ -2,14 +2,14 @@
 
 ## Resumen ejecutivo
 SmartWebApp es un ejemplo de aplicación web basada en **Spring Boot** que
-utiliza **JavaServer Faces (JSF)** como motor de vistas. El acceso a datos se
+emplea **Thymeleaf** como motor de plantillas. El acceso a datos se
 realiza mediante **Hibernate/JPA** sobre **PostgreSQL**. Su objetivo principal
 es ilustrar una arquitectura en capas sencilla (Controlador, Servicio y
 Repositorio) para la gestión de usuarios y tareas.
 
 ## Introducción
 SmartWebApp es una aplicación web desarrollada con **Spring Boot** y
-**JavaServer Faces (JSF)** que utiliza **Hibernate/JPA** para el acceso
+**Thymeleaf** que utiliza **Hibernate/JPA** para el acceso
 persistente sobre **PostgreSQL**. El propósito del proyecto es mostrar un
 pequeño gestor de usuarios y tareas, sirviendo como base para ejemplos de
 arquitectura en capas y pruebas con Spring.
@@ -31,8 +31,8 @@ repositorios. A continuación se resume el flujo principal:
 +---------+     +---------+     +-------------+     +-----------------+
 ```
 
-Cada capa tiene una responsabilidad concreta:
-- **Controladores**: reciben las peticiones web y preparan las vistas JSF.
+-Cada capa tiene una responsabilidad concreta:
+- **Controladores**: reciben las peticiones web y preparan las vistas Thymeleaf.
 - **Servicios**: contienen la lógica de dominio y validaciones.
 - **Repositorios**: interfaces JPA para operaciones de persistencia.
 
@@ -46,13 +46,13 @@ src/main/java
 │   ├── model        # Entidades
 │   └── exception    # Clases de error
 └── resources
-    └── templates    # Vistas JSF
+    └── templates    # Vistas Thymeleaf
 ```
 
 ## Paquetes y clases principales
 - `SmartWebAppApplication`: arranque de la aplicación Spring.
-- `controller.UserController`: páginas JSF para listar y crear usuarios.
-- `controller.TaskController`: páginas JSF para tareas.
+- `controller.UserController`: páginas Thymeleaf para listar y crear usuarios.
+- `controller.TaskController`: páginas Thymeleaf para tareas.
 - `service.UserService` / `service.TaskService`: servicios con operaciones
   CRUD básicas.
 - `repository.UserRepository` / `repository.TaskRepository`: acceso a datos.
@@ -76,7 +76,7 @@ Actualmente la aplicación expone vistas MVC con las siguientes rutas:
 
 Ejemplo de petición usando `curl` para crear un usuario:
 ```bash
-curl -X POST -d "name=John" http://localhost:8080/users
+curl -X POST -d "name=John" http://localhost:8082/users
 ```
 
 ## Requisitos técnicos
@@ -99,7 +99,7 @@ crear o actualizar las tablas automáticamente.
    mvn clean install
    mvn spring-boot:run
    ```
-4. Abrir `http://localhost:8080` en el navegador.
+4. Abrir `http://localhost:8082` en el navegador.
 
 ## Despliegue en producción
 1. Empaquetar con `mvn clean package`.
