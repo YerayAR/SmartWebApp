@@ -8,6 +8,7 @@ import java.util.List;
  * Entidad que representa a un usuario del sistema.
  */
 @Entity
+@Table(name = "app_user")
 public class User {
 
     /** Identificador autogenerado. */

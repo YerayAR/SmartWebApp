@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- Vista de gestión de tareas asociadas a los usuarios -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="https://jakarta.ee/xml/ns/jakartaee"
+      xmlns:f="https://jakarta.ee/xml/ns/jakartaee">
+<h:head>
+    <title>SmartWebApp - Tareas</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .form-section { background: #f5f5f5; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .data-table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        .data-table th, .data-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .data-table th { background-color: #4CAF50; color: white; }
+        .form-field { margin: 5px 0; }
+        .form-field label { display: inline-block; width: 120px; }
+        .btn { background-color: #4CAF50; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; }
+        .btn:hover { background-color: #45a049; }
+        .navigation { margin-bottom: 20px; }
+        .navigation a { margin-right: 15px; text-decoration: none; color: #4CAF50; }
+        select, input[type="text"] { padding: 5px; margin-left: 10px; }
+    </style>
+</h:head>
+<h:body>
+    <div class="navigation">
+        <h:link value="← Volver al Inicio" outcome="index"/>
+        <h:link value="Gestión de Usuarios" outcome="users"/>
+    </div>
+    
+    <h1>Gestión de Tareas</h1>
+    
+    <div class="form-section">
+        <h2>Añadir Nueva Tarea</h2>
+        <h:form>
+            <div class="form-field">
+                <h:outputLabel value="Descripción:" for="description"/>
+                <h:inputText id="description" value="#{taskBean.task.description}" required="true" requiredMessage="La descripción es obligatoria"/>
+            </div>
+            <div class="form-field">
+                <h:outputLabel value="Usuario:" for="user"/>
+                <h:selectOneMenu id="user" value="#{taskBean.selectedUserId}" required="true" requiredMessage="Debe seleccionar un usuario">
+                    <f:selectItem itemValue="" itemLabel="-- Seleccione un usuario --"/>
+                    <f:selectItems value="#{taskBean.users}" var="u" itemValue="#{u.id}" itemLabel="#{u.name}"/>
+                </h:selectOneMenu>
+            </div>
+            <div class="form-field">
+                <h:commandButton value="Añadir Tarea" action="#{taskBean.save}" styleClass="btn"/>
+            </div>
+            <h:messages style="color: red;"/>
+        </h:form>
+    </div>
+    
+    <h2>Lista de Tareas</h2>
+    <h:dataTable value="#{taskBean.tasks}" var="t" styleClass="data-table" rendered="#{not empty taskBean.tasks}">
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{t.id}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Descripción</f:facet>
+            #{t.description}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Usuario Asignado</f:facet>
+            #{t.user.name}
+        </h:column>
+    </h:dataTable>
+    
+    <h:panelGroup rendered="#{empty taskBean.tasks}">
+        <p>No hay tareas registradas.</p>
+    </h:panelGroup>
+    
+    <h:panelGroup rendered="#{empty taskBean.users}">
+        <div style="background: #ffebee; padding: 10px; margin: 10px 0; border-radius: 5px; color: #c62828;">
+            <strong>Aviso:</strong> Debe crear al menos un usuario antes de poder asignar tareas.
+            <h:link value="Ir a Gestión de Usuarios" outcome="users" style="margin-left: 10px;"/>
+        </div>
+    </h:panelGroup>
+</h:body>
+</html>

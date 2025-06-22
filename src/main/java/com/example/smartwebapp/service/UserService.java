@@ -49,12 +49,9 @@ public class UserService {
      * Busca un usuario por su identificador.
      *
      * @param id identificador del usuario
-     * @return usuario encontrado
-     * @throws RuntimeException si no existe
+     * @return Optional con usuario encontrado
      */
-    public User findById(Long id) {
-        // Lanza una excepción controlada si no existe el usuario solicitado
-        return userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+    public java.util.Optional<User> findById(Long id) {
+        return userRepository.findById(id);
     }
 }
