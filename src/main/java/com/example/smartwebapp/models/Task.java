@@ -1,4 +1,7 @@
-package com.example.smartwebapp.model;
+package com.example.smartwebapp.models;
+/*
+ * Entidad JPA que almacena las tareas de los usuarios.
+ */
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

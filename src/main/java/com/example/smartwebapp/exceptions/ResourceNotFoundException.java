@@ -1,4 +1,7 @@
-package com.example.smartwebapp.exception;
+package com.example.smartwebapp.exceptions;
+/*
+ * Excepcion personalizada para recursos no encontrados.
+ */
 
 /**
  * Excepción lanzada cuando no se encuentra un recurso solicitado.

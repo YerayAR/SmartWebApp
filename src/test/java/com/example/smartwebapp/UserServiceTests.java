@@ -1,7 +1,10 @@
 package com.example.smartwebapp;
+/*
+ * Pruebas unitarias para el servicio de usuarios.
+ */
 
-import com.example.smartwebapp.model.User;
-import com.example.smartwebapp.service.UserService;
+import com.example.smartwebapp.models.User;
+import com.example.smartwebapp.services.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

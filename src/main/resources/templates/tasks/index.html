@@ -117,8 +117,8 @@
                                         <td th:text="${task.description}">Descripción de la tarea</td>
                                         <td th:text="${task.user?.name ?: 'Sin asignar'}">Usuario</td>
                                         <td>
-                                            <span th:class="'badge ' + ${task.priority == T(com.example.smartwebapp.model.Priority).HIGH ? 'bg-danger' : (task.priority == T(com.example.smartwebapp.model.Priority).MEDIUM ? 'bg-warning' : 'bg-secondary')}"
-                                                  th:text="${task.priority == T(com.example.smartwebapp.model.Priority).HIGH ? 'Alta' : (task.priority == T(com.example.smartwebapp.model.Priority).MEDIUM ? 'Media' : 'Baja')}">
+                                            <span th:class="'badge ' + ${task.priority == T(com.example.smartwebapp.models.Priority).HIGH ? 'bg-danger' : (task.priority == T(com.example.smartwebapp.models.Priority).MEDIUM ? 'bg-warning' : 'bg-secondary')}"
+                                                  th:text="${task.priority == T(com.example.smartwebapp.models.Priority).HIGH ? 'Alta' : (task.priority == T(com.example.smartwebapp.models.Priority).MEDIUM ? 'Media' : 'Baja')}">
                                                 Media
                                             </span>
                                         </td>

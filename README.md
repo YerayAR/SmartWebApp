@@ -1,41 +1,56 @@
 # SmartWebApp
 
-Aplicacion web de ejemplo con Spring Boot, Thymeleaf, Hibernate y PostgreSQL.
+## 📌 Resumen del Proyecto
+Aplicación web de ejemplo construida con **Spring Boot** que permite administrar usuarios y tareas. Sirve como base de pruebas para demostrar una arquitectura en capas sencilla y el uso de Thymeleaf como motor de plantillas.
 
-## Requisitos
-- Java 17
-- Maven
-- PostgreSQL
+## 🔧 Requisitos Técnicos
+- **Java 17**
+- **Maven**
+- **PostgreSQL**
+- Spring Boot 3.2.3
 
-## Configuracion
-Crea una base de datos llamada `smartwebapp` y ajusta las credenciales en `src/main/resources/application.properties`.
+## 🚀 Instrucciones de Instalación
+1. Clonar el repositorio.
+2. Crear la base de datos `smartwebapp` y ajustar credenciales en `src/main/resources/application.properties`.
+3. Instalar dependencias y ejecutar la aplicación:
+   ```bash
+   mvn clean install
+   mvn spring-boot:run
+   ```
+   La aplicación quedará disponible en `http://localhost:8082`.
+4. En Windows puede usarse el script `scripts/setup.ps1` para automatizar la configuración.
 
-Para poblar datos iniciales se usa `import.sql`.
+## 🧪 Ejemplos de Uso
+- Llamada a la API REST para listar tareas:
+  ```bash
+  curl http://localhost:8082/tasks/api
+  ```
 
-## Configuracion automatica
-Para simplificar la puesta en marcha en Windows se incluye el script
-`setup.ps1`. Ejecutalo desde PowerShell para que se encargue de crear la
-base de datos, resolver posibles conflictos de puertos y arrancar la
-aplicacion.
-
-```powershell
-./setup.ps1
+## 🗂️ Estructura del Proyecto
+```text
+src/
+├── main
+│   ├── java/com/example/smartwebapp
+│   │   ├── controllers/    -> Controladores HTTP y REST
+│   │   ├── services/       -> Lógica de negocio
+│   │   ├── repositories/   -> Interfaces JPA
+│   │   ├── models/         -> Entidades de dominio
+│   │   ├── exceptions/     -> Manejo de errores
+│   │   └── SmartWebAppApplication.java
+│   └── resources
+│       ├── application.properties
+│       └── templates/      -> Vistas Thymeleaf
+└── test
+    └── java/com/example/smartwebapp
+        └── UserServiceTests.java
 ```
+Además existen carpetas `scripts/` con utilidades y `docs/` para documentación adicional.
 
-## Compilacion
-```bash
-mvn clean package
-```
+## 👨‍💻 Contribución
+Las aportaciones son bienvenidas. Abre un *issue* o envía un *pull request* describiendo tu propuesta.
 
-## Ejecucion
-```bash
-mvn spring-boot:run
-```
-La aplicacion quedara disponible en `http://localhost:8082`.
+## 📄 Licencia
+Este proyecto se distribuye bajo la licencia MIT.
 
-## Vistas con Thymeleaf
-La interfaz web se construye con [Thymeleaf](https://www.thymeleaf.org/),
-lo que permite usar plantillas HTML estáticas enriquecidas con expresiones de
-Spring para mostrar datos dinámicos de forma sencilla. No se requiere ninguna
-configuración adicional, ya que Spring Boot detecta automáticamente las
-plantillas ubicadas en `src/main/resources/templates`.
+## 🧠 Consideraciones Finales
+La lógica de negocio actual se mantiene simple para fines demostrativos. Se pueden implementar mejoras como seguridad con Spring Security o más pruebas automatizadas.

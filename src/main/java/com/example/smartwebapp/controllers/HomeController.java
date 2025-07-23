@@ -1,4 +1,7 @@
-package com.example.smartwebapp.controller;
+package com.example.smartwebapp.controllers;
+/*
+ * Controlador inicial que redirige la raiz a la vista principal.
+ */
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,7 @@
-package com.example.smartwebapp.exception;
+package com.example.smartwebapp.exceptions;
+/*
+ * Gestion centralizado de excepciones para la API REST.
+ */
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

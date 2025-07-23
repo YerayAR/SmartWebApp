@@ -1,4 +1,7 @@
 package com.example.smartwebapp;
+/*
+ * Archivo principal de arranque de la aplicacion Spring Boot.
+ */
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

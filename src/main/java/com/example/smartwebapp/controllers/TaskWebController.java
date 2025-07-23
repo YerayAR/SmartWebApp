@@ -1,9 +1,12 @@
-package com.example.smartwebapp.controller;
+package com.example.smartwebapp.controllers;
+/*
+ * Controlador MVC y REST para operaciones con tareas.
+ */
 
-import com.example.smartwebapp.model.Task;
-import com.example.smartwebapp.model.User;
-import com.example.smartwebapp.service.TaskService;
-import com.example.smartwebapp.service.UserService;
+import com.example.smartwebapp.models.Task;
+import com.example.smartwebapp.models.User;
+import com.example.smartwebapp.services.TaskService;
+import com.example.smartwebapp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
