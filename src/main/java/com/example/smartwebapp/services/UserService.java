@@ -1,7 +1,10 @@
-package com.example.smartwebapp.service;
+package com.example.smartwebapp.services;
+/*
+ * Servicio de dominio que encapsula operaciones sobre usuarios.
+ */
 
-import com.example.smartwebapp.model.User;
-import com.example.smartwebapp.repository.UserRepository;
+import com.example.smartwebapp.models.User;
+import com.example.smartwebapp.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

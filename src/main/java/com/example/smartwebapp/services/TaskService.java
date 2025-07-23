@@ -1,7 +1,10 @@
-package com.example.smartwebapp.service;
+package com.example.smartwebapp.services;
+/*
+ * Servicio de dominio responsable de la logica de tareas.
+ */
 
-import com.example.smartwebapp.model.Task;
-import com.example.smartwebapp.repository.TaskRepository;
+import com.example.smartwebapp.models.Task;
+import com.example.smartwebapp.repositories.TaskRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

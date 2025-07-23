@@ -65,7 +65,7 @@ Write-Host "Archivo application.properties actualizado."
 
 # 6. Ajustar nombres de tablas para palabras reservadas
 $reserved = @('user','order','group')
-$modelDir = Join-Path $PSScriptRoot 'src/main/java/com/example/smartwebapp/model'
+$modelDir = Join-Path $PSScriptRoot 'src/main/java/com/example/smartwebapp/models'
 Get-ChildItem $modelDir -Filter '*.java' | ForEach-Object {
     $class = $_.BaseName.ToLower()
     if ($reserved -contains $class) {

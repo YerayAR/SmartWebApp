@@ -1,7 +1,10 @@
-package com.example.smartwebapp.controller;
+package com.example.smartwebapp.controllers;
+/*
+ * Controlador MVC encargado de la gestion de usuarios.
+ */
 
-import com.example.smartwebapp.model.User;
-import com.example.smartwebapp.service.UserService;
+import com.example.smartwebapp.models.User;
+import com.example.smartwebapp.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

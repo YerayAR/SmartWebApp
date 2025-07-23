@@ -1,4 +1,7 @@
-package com.example.smartwebapp.model;
+package com.example.smartwebapp.models;
+/*
+ * Entidad JPA que representa un usuario del sistema.
+ */
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;

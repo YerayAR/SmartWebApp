@@ -1,6 +1,9 @@
-package com.example.smartwebapp.repository;
+package com.example.smartwebapp.repositories;
+/*
+ * Repositorio JPA para persistir usuarios.
+ */
 
-import com.example.smartwebapp.model.User;
+import com.example.smartwebapp.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

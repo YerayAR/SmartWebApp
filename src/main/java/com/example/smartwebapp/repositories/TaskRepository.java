@@ -1,6 +1,9 @@
-package com.example.smartwebapp.repository;
+package com.example.smartwebapp.repositories;
+/*
+ * Repositorio JPA para gestionar tareas.
+ */
 
-import com.example.smartwebapp.model.Task;
+import com.example.smartwebapp.models.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
