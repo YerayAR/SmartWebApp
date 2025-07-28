@@ -84,3 +84,25 @@ out/
 # VS Code
 .vscode/
 
+# Docker
+.env
+*.env.local
+*.env.*.local
+docker-compose.override.yml
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.temp
+
+# Database
+*.sqlite
+*.db
+data/
+

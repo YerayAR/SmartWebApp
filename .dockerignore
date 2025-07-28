@@ -1,0 +1,32 @@
+# Directorios de build
+target/
+.mvn/
+
+# Archivos de configuración IDE
+.vscode/
+.idea/
+*.iml
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Scripts obsoletos
+scripts/
+
+# Archivos de Git
+.git/
+.gitignore
+
+# Archivos de Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Documentación
+README.md
+docs/
+
+# Archivos temporales
+*.tmp
+*.log
